@@ -7,3 +7,6 @@ set -e
 if [[ -f /usr/lib/tmpfiles.d/debian.conf ]]; then
     sed -i '/\/etc\/pam.d/d' /usr/lib/tmpfiles.d/debian.conf
 fi
+
+# Drop Debian kernel artifacts; keep systemd-boot/UKI assets intact.
+rm -f /boot/vmlinuz-* /boot/initrd.img-* /boot/System.map-* /boot/config-*
